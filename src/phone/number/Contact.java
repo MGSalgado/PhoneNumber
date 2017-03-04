@@ -9,16 +9,16 @@ package phone.number;
  *
  * @author Alumno
  */
-public class Contact {
+public class Contact { //Atributos de la clase
     private String name;
     private int number;
 
-    public Contact(String name, int number) {
+    public Contact(String name, int number) {//constructor  apartir de nombre del contacto y numero de telefono
         this.name = name;
         this.number = number;
     }
 
-    public String getName() {
+    public String getName() { //getter y setter de nombre
         return name;
     }
 
@@ -26,7 +26,7 @@ public class Contact {
         this.name = name;
     }
 
-    public int getNumber() {
+    public int getNumber() { //getter y setter de numero
         return number;
     }
 
@@ -34,7 +34,7 @@ public class Contact {
         this.number = number;
     }
     @Override
-    public String toString(){
+    public String toString(){//metodo to string para regresar una cadena nombre+numero
         return name+": "+number;
     }
 }
