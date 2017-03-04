@@ -9,15 +9,15 @@ import java.util.*;
  *
  * @author Alumno
  */
-public class MobilePhone {
+public class MobilePhone { //atributos de la clasa (solo es uno jajja)
     private ArrayList<Contact> contactos;
 
-    public MobilePhone() {
+    public MobilePhone() { //construtor de la clase
         contactos = new ArrayList<Contact>();
     }
     
    
-  public boolean addContact (Contact contacto){
+  public boolean addContact (Contact contacto){ //metodo para agregar un contacto a partir de un objeto tipo "contact"
       if (findContact(contacto.getName())==-1){
           contactos.add(contacto);
           return true;
@@ -25,19 +25,12 @@ public class MobilePhone {
       return false;
   }  
   
-  public boolean addContact (String name, int number){
+  public boolean addContact (String name, int number){ //metodo para agregar un contacto a partir de un nombre de contacto y un numero
       return addContact(new Contact(name, number));
   }
-  
-  /*public Contact findContact(String name){
-      for (Contact tempContact : contactos){
-            if(tempContact.getName().equals(name)){
-                return tempContact;
-            }
-      }return null;
-  }*/
+ 
 
-  public int findContact(String name){
+  public int findContact(String name){ //metodo para encontrar si un contacto ya esta dentro de nuestro ArrayList de contactos
       for(int i = 0; i<contactos.size();i++){
           if(contactos.get(i).getName().equals(name)){
               return i;
@@ -45,7 +38,7 @@ public class MobilePhone {
       }return -1;
   }
   
-  public boolean removeContact(Contact contacto){
+  public boolean removeContact(Contact contacto){ //metodo para quitar un contacto a partir e un objeto Contact
       int pos= findContact(contacto.getName());
       if(pos== -1){
           return false;
@@ -54,15 +47,15 @@ public class MobilePhone {
       return true;
       }
   
-  public boolean removeContact(String name, int number){
+  public boolean removeContact(String name, int number){ //metodo para remover un contacto a partir de un nombre y un numero de contacto
       return removeContact(new Contact(name,number));
   }
   
-  public boolean removeContact(String name){
+  public boolean removeContact(String name){ //metodo para remover un contacto a partir de un nombre de contacto
       return removeContact(new Contact(name,123));
   }
   
-  public boolean updateContact(Contact contacto){
+  public boolean updateContact(Contact contacto){ //metodo para actualizar la informacion de un contacto, requiere un objeto tipo contact
       int pos = findContact(contacto.getName());
       if(pos == -1){
           return false;
@@ -72,17 +65,17 @@ public class MobilePhone {
       return true;
   }
   
-  public boolean updateContact(String name, int number){
+  public boolean updateContact(String name, int number){ //metodo para actualizar la información de un contacto a partir de un nombre y numero
       return updateContact(new Contact(name,number));
   }
   
-  public void listContacts(){
+  public void listContacts(){ //metodo para mostrar a modo de lista todos los contacto del ArrayList contactos
       for (Contact tempContact : contactos){
           System.out.println(tempContact.toString());
       }
   }
   
-  public String queryContact(String name){
+  public String queryContact(String name){ //metodo para regresar la información de un contacto determinado
       int pos = findContact(name);
       
       if(pos==-1){
