@@ -11,19 +11,19 @@ import java.util.*;
  */
 public class PhoneNumber {
        
-    public static Scanner scanner = new Scanner(System.in);
-    public static MobilePhone myPhone = new MobilePhone();
+    public static Scanner scanner = new Scanner(System.in); //creacion de objeto scanner
+    public static MobilePhone myPhone = new MobilePhone(); //creacion de clase maestra tipo MobilePhone
     
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) { //main, solo contiene un metodo que llama al menu
        menu();
     }
     
-    public static void menu(){
-       int option;
-       
+    public static void menu(){ //el metodo menu tiene un switch con el cual accedemos a las diferentes opciones que se pueden elegir
+       int option;          //primero llama almetodo "printMenu()" para mostrar las opciones en pantalla y despues pide por teclado
+                            //que el usuario ingrese la opcion que desea ejecutar
        printMenu();
        option = scanner.nextInt();
        while(option >0&&option <7){
@@ -56,7 +56,7 @@ public class PhoneNumber {
        }
     }
     
-    public static void printMenu(){
+    public static void printMenu(){ //muestra las opciones en pantalla
         System.out.println("Menu");
         System.out.println("0. Quit");
         System.out.println("1. Add contact");
@@ -68,7 +68,7 @@ public class PhoneNumber {
         System.out.println("Option?");
     }
     
-    public static void addContact(){
+    public static void addContact(){ //utiliza la clase myPhone para crear un contacto
         if( myPhone.addContact(askName(),askNumber())){
             System.out.println("Contact succesfully created");
                     }else{
@@ -76,7 +76,7 @@ public class PhoneNumber {
         }
     }
     
-    public static void updateContact(){
+    public static void updateContact(){ //utiliza la clase myPhone para actualizar un contacto
         if(myPhone.updateContact(askName(),askNumber())){
             System.out.println("Contact succesfully updated");
         }else{
@@ -84,7 +84,7 @@ public class PhoneNumber {
         }
     }
     
-    public static void removeContact(){
+    public static void removeContact(){ //utiliza la clase myPhone para eliminar un contacto
         if(myPhone.removeContact(askName(),askNumber())){
             System.out.println("Contact succesfully removed");
         }else{
@@ -92,23 +92,23 @@ public class PhoneNumber {
         }
     }
     
-    public static void queryContact(){
+    public static void queryContact(){ //utiliza la clase myPhone para solicitar un contacto
         System.out.println(myPhone.queryContact(askName()));
     }
     
-    public static void listAllContacts(){
+    public static void listAllContacts(){ //utiliza la clase myPhone para mostrar una lista de todos los contactos
         myPhone.listContacts();
     }
     
-    public static String askName(){
-        String name;
+    public static String askName(){ //para facilitar la escritura de codigo, varios metodos llaman a "askName()" para pedir al usuario
+        String name;                      //el nombre del contacto
         System.out.println("Contact name");
         name= scanner.next();
         return name;
     }
     
-    public static int askNumber(){
-        int number;
+    public static int askNumber(){  //para facilitar la escritura de codigo, varios metodos llaman a "askNumber()" para pedir a usuario
+        int number;                       //el numero del contacto
         System.out.println("Number?");
         return number= scanner.nextInt();
     }
